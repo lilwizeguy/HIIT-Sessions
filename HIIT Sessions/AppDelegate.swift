@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let defaults = UserDefaults.standard
+        if defaults.dictionaryRepresentation().keys.contains("loadedWorkouts") == false {
+            defaults.set(true, forKey: "loadedWorkouts")
+            Database.loadPredefiniedWorkouts()
+        }
+        
         // Override point for customization after application launch.
         return true
     }

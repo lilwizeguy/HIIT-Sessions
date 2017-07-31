@@ -13,11 +13,11 @@ class BlurNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.clear
-        self.addMaskView()
+        //self.view.backgroundColor = UIColor.blue
+        //self.addMaskView()
         
         self.navigationBar.backgroundColor = UIColor.clear
-        
+        self.view.backgroundColor = UIColor.clear
 
         // Do any additional setup after loading the view.
     }

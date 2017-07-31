@@ -29,6 +29,11 @@ class Workout: NSObject {
     var warmup: NSNumber = 0.0
     var cooldown: NSNumber = 0.0
     
+    
+    override init() {
+        
+    }
+    
     init(_name: String,
          _numCycles: NSNumber,
          _highIntensity: NSNumber,
@@ -43,6 +48,7 @@ class Workout: NSObject {
         self.lowIntensity = _lowIntensity
         self.warmup = _warmup
         self.cooldown = _cooldown
+        self.identifier = NSUUID().uuidString
     }
     
     required init(coder aDecoder: NSCoder!)
@@ -56,6 +62,7 @@ class Workout: NSObject {
         self.lowIntensity = aDecoder.decodeObject(forKey: Fields.kLowIntensity.rawValue) as! NSNumber
         self.warmup = aDecoder.decodeObject(forKey: Fields.kWarmup.rawValue) as! NSNumber
         self.cooldown = aDecoder.decodeObject(forKey: Fields.kCooldown.rawValue) as! NSNumber
+        self.identifier = NSUUID().uuidString
 
     }
     

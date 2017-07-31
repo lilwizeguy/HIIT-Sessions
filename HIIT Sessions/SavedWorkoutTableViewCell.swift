@@ -1,17 +1,15 @@
 //
-//  BasicTableViewCell.swift
+//  SavedWorkoutTableViewCell.swift
 //  HIIT Sessions
 //
-//  Created by Immanuel Amirtharaj on 7/2/16.
-//  Copyright © 2016 Immanuel Amirtharaj. All rights reserved.
+//  Created by Immanuel Amirtharaj on 7/5/17.
+//  Copyright © 2017 Immanuel Amirtharaj. All rights reserved.
 //
 
 import UIKit
 
-class BasicTableViewCell: UITableViewCell {
+class SavedWorkoutTableViewCell: UITableViewCell {
 
-    @IBOutlet var descriptionField: UITextField!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +21,8 @@ class BasicTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func loadContentView(workout : Workout) {
+        self.textLabel?.text = workout.name
+    }
+
 }

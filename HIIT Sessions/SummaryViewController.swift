@@ -16,7 +16,7 @@ class SummaryViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.view.backgroundColor = UIColor.clear
-        self.addMaskView()
+//        self.addMaskView()
 
     }
 

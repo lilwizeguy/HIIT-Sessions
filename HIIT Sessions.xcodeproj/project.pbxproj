@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F50F2601F0D8A8E0075BEB4 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50F25F1F0D8A8E0075BEB4 /* MediaPlayerViewController.swift */; };
+		3F50F2641F0DE5C40075BEB4 /* SavedWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50F2631F0DE5C40075BEB4 /* SavedWorkoutTableViewCell.swift */; };
 		3F8950B41D28672C003BCB7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B31D28672C003BCB7D /* AppDelegate.swift */; };
-		3F8950B61D28672C003BCB7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B51D28672C003BCB7D /* ViewController.swift */; };
 		3F8950B91D28672C003BCB7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950B71D28672C003BCB7D /* Main.storyboard */; };
 		3F8950BB1D28672C003BCB7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950BA1D28672C003BCB7D /* Assets.xcassets */; };
 		3F8950BE1D28672C003BCB7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950BC1D28672C003BCB7D /* LaunchScreen.storyboard */; };
@@ -25,38 +26,18 @@
 		3F8950F21D2A3D94003BCB7D /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */; };
 		3F9209FE1ED11B5A006B64A3 /* UIButton+RoundedButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */; };
 		3F920A001ED366E5006B64A3 /* UIView+FrameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */; };
-		3F920A021ED36E26006B64A3 /* TimerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920A011ED36E26006B64A3 /* TimerProgressView.swift */; };
 		3FB02B371D31BA33008DA4F8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B361D31BA33008DA4F8 /* Workout.swift */; };
 		3FB02B391D31C34D008DA4F8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B381D31C34D008DA4F8 /* Database.swift */; };
 		3FB02B3B1D330C80008DA4F8 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
+		3FD2FB131F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2FB121F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift */; };
+		3FD2FB151F2E999800623E91 /* exit_white@3x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2FB141F2E999800623E91 /* exit_white@3x.swift */; };
 		3FD495E91ED413E800C3DBA5 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */; };
-		3FD495FD1ED4169000C3DBA5 /* cancel_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495EB1ED4169000C3DBA5 /* cancel_white.png */; };
-		3FD495FE1ED4169000C3DBA5 /* cancel_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495EC1ED4169000C3DBA5 /* cancel_white@2x.png */; };
-		3FD495FF1ED4169000C3DBA5 /* cancel_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495ED1ED4169000C3DBA5 /* cancel_white@3x.png */; };
-		3FD496001ED4169000C3DBA5 /* exit_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495EE1ED4169000C3DBA5 /* exit_white.png */; };
-		3FD496011ED4169000C3DBA5 /* exit_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495EF1ED4169000C3DBA5 /* exit_white@2x.png */; };
-		3FD496021ED4169000C3DBA5 /* exit_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F01ED4169000C3DBA5 /* exit_white@3x.png */; };
-		3FD496031ED4169000C3DBA5 /* next_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F11ED4169000C3DBA5 /* next_white.png */; };
-		3FD496041ED4169000C3DBA5 /* next_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F21ED4169000C3DBA5 /* next_white@2x.png */; };
-		3FD496051ED4169000C3DBA5 /* next_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F31ED4169000C3DBA5 /* next_white@3x.png */; };
-		3FD496061ED4169000C3DBA5 /* pause_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F41ED4169000C3DBA5 /* pause_white.png */; };
-		3FD496071ED4169000C3DBA5 /* pause_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F51ED4169000C3DBA5 /* pause_white@2x.png */; };
-		3FD496081ED4169000C3DBA5 /* pause_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F61ED4169000C3DBA5 /* pause_white@3x.png */; };
-		3FD496091ED4169000C3DBA5 /* play_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F71ED4169000C3DBA5 /* play_white.png */; };
-		3FD4960A1ED4169000C3DBA5 /* play_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F81ED4169000C3DBA5 /* play_white@2x.png */; };
-		3FD4960B1ED4169000C3DBA5 /* play_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495F91ED4169000C3DBA5 /* play_white@3x.png */; };
-		3FD4960C1ED4169000C3DBA5 /* previous_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495FA1ED4169000C3DBA5 /* previous_white.png */; };
-		3FD4960D1ED4169000C3DBA5 /* previous_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495FB1ED4169000C3DBA5 /* previous_white@2x.png */; };
-		3FD4960E1ED4169000C3DBA5 /* previous_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD495FC1ED4169000C3DBA5 /* previous_white@3x.png */; };
-		3FD496121ED4B38B00C3DBA5 /* TimerScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD496111ED4B38B00C3DBA5 /* TimerScreenTests.swift */; };
 		3FD496131ED4B6AF00C3DBA5 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */; };
 		3FD496141ED4B6B000C3DBA5 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */; };
 		3FD496151ED4B6D400C3DBA5 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
 		3FD496161ED4B6D500C3DBA5 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
 		3FD496171ED4B6E900C3DBA5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B361D31BA33008DA4F8 /* Workout.swift */; };
 		3FD496181ED4B6EA00C3DBA5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B361D31BA33008DA4F8 /* Workout.swift */; };
-		3FD496191ED4B78D00C3DBA5 /* TimerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920A011ED36E26006B64A3 /* TimerProgressView.swift */; };
-		3FD4961A1ED4B78D00C3DBA5 /* TimerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920A011ED36E26006B64A3 /* TimerProgressView.swift */; };
 		3FD4961B1ED4B79100C3DBA5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950EF1D2A3D94003BCB7D /* SwitchTableViewCell.swift */; };
 		3FD4961C1ED4B79100C3DBA5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950EF1D2A3D94003BCB7D /* SwitchTableViewCell.swift */; };
 		3FD4961D1ED4B79D00C3DBA5 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */; };
@@ -79,8 +60,6 @@
 		3FD4962E1ED4B7CD00C3DBA5 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E71D287534003BCB7D /* AddTableViewController.swift */; };
 		3FD4962F1ED4B7D000C3DBA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B31D28672C003BCB7D /* AppDelegate.swift */; };
 		3FD496301ED4B7D100C3DBA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B31D28672C003BCB7D /* AppDelegate.swift */; };
-		3FD496311ED4B7D400C3DBA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B51D28672C003BCB7D /* ViewController.swift */; };
-		3FD496321ED4B7D500C3DBA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950B51D28672C003BCB7D /* ViewController.swift */; };
 		3FD496351ED4B7DF00C3DBA5 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */; };
 		3FD496361ED4B7DF00C3DBA5 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */; };
 		3FD496371ED4B7E300C3DBA5 /* UIView+FrameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */; };
@@ -109,9 +88,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F50F25F1F0D8A8E0075BEB4 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
+		3F50F2631F0DE5C40075BEB4 /* SavedWorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedWorkoutTableViewCell.swift; path = "HIIT Sessions/SavedWorkoutTableViewCell.swift"; sourceTree = "<group>"; };
 		3F8950B01D28672C003BCB7D /* HIIT Sessions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HIIT Sessions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8950B31D28672C003BCB7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F8950B51D28672C003BCB7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F8950B81D28672C003BCB7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F8950BA1D28672C003BCB7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F8950BD1D28672C003BCB7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +102,7 @@
 		3F8950CF1D28672C003BCB7D /* HIIT SessionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HIIT SessionsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8950D31D28672C003BCB7D /* HIIT_SessionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIIT_SessionsUITests.swift; sourceTree = "<group>"; };
 		3F8950D51D28672C003BCB7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
+		3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleScreenViewController.swift; path = "HIIT Sessions/TitleScreenViewController.swift"; sourceTree = "<group>"; };
 		3F8950E31D28741F003BCB7D /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		3F8950E41D28741F003BCB7D /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		3F8950E71D287534003BCB7D /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
@@ -132,33 +112,15 @@
 		3F8950EF1D2A3D94003BCB7D /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+RoundedButon.swift"; sourceTree = "<group>"; };
-		3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FrameHelper.swift"; sourceTree = "<group>"; };
-		3F920A011ED36E26006B64A3 /* TimerProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressView.swift; sourceTree = "<group>"; };
+		3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+FrameHelper.swift"; path = "HIIT Sessions/UIView+FrameHelper.swift"; sourceTree = "<group>"; };
 		3FB02B361D31BA33008DA4F8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		3FB02B381D31C34D008DA4F8 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenViewController.swift; sourceTree = "<group>"; };
-		3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
-		3FD495EB1ED4169000C3DBA5 /* cancel_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_white.png; sourceTree = "<group>"; };
-		3FD495EC1ED4169000C3DBA5 /* cancel_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_white@2x.png"; sourceTree = "<group>"; };
-		3FD495ED1ED4169000C3DBA5 /* cancel_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_white@3x.png"; sourceTree = "<group>"; };
-		3FD495EE1ED4169000C3DBA5 /* exit_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit_white.png; sourceTree = "<group>"; };
-		3FD495EF1ED4169000C3DBA5 /* exit_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit_white@2x.png"; sourceTree = "<group>"; };
-		3FD495F01ED4169000C3DBA5 /* exit_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit_white@3x.png"; sourceTree = "<group>"; };
-		3FD495F11ED4169000C3DBA5 /* next_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_white.png; sourceTree = "<group>"; };
-		3FD495F21ED4169000C3DBA5 /* next_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_white@2x.png"; sourceTree = "<group>"; };
-		3FD495F31ED4169000C3DBA5 /* next_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_white@3x.png"; sourceTree = "<group>"; };
-		3FD495F41ED4169000C3DBA5 /* pause_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_white.png; sourceTree = "<group>"; };
-		3FD495F51ED4169000C3DBA5 /* pause_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_white@2x.png"; sourceTree = "<group>"; };
-		3FD495F61ED4169000C3DBA5 /* pause_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_white@3x.png"; sourceTree = "<group>"; };
-		3FD495F71ED4169000C3DBA5 /* play_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_white.png; sourceTree = "<group>"; };
-		3FD495F81ED4169000C3DBA5 /* play_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_white@2x.png"; sourceTree = "<group>"; };
-		3FD495F91ED4169000C3DBA5 /* play_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_white@3x.png"; sourceTree = "<group>"; };
-		3FD495FA1ED4169000C3DBA5 /* previous_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous_white.png; sourceTree = "<group>"; };
-		3FD495FB1ED4169000C3DBA5 /* previous_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous_white@2x.png"; sourceTree = "<group>"; };
-		3FD495FC1ED4169000C3DBA5 /* previous_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous_white@3x.png"; sourceTree = "<group>"; };
-		3FD496111ED4B38B00C3DBA5 /* TimerScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenTests.swift; sourceTree = "<group>"; };
+		3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerScreenViewController.swift; path = "HIIT Sessions/TimerScreenViewController.swift"; sourceTree = "<group>"; };
+		3FD2FB121F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedWorkoutsCollectionViewController.swift; sourceTree = "<group>"; };
+		3FD2FB141F2E999800623E91 /* exit_white@3x.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "exit_white@3x.swift"; path = "HIIT Sessions/exit_white@3x.swift"; sourceTree = "<group>"; };
+		3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "HIIT Sessions/SummaryViewController.swift"; sourceTree = "<group>"; };
 		3FD496391ED4D07000C3DBA5 /* TimerScreenUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerScreenUITests.swift; sourceTree = "<group>"; };
-		3FD4963D1ED511E900C3DBA5 /* UIViewController+CustomUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomUI.swift"; sourceTree = "<group>"; };
+		3FD4963D1ED511E900C3DBA5 /* UIViewController+CustomUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+CustomUI.swift"; path = "HIIT Sessions/UIViewController+CustomUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,23 +148,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F50F26A1F0EC45F0075BEB4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */,
+				3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */,
+				3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */,
+				3F8950ED1D2A37DA003BCB7D /* BlurNavigationController.swift */,
+				3F8950E71D287534003BCB7D /* AddTableViewController.swift */,
+				3FD2FB121F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift */,
+				3F50F25F1F0D8A8E0075BEB4 /* MediaPlayerViewController.swift */,
+			);
+			name = "View Controllers";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3F50F26B1F0EC47E0075BEB4 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				3F50F2631F0DE5C40075BEB4 /* SavedWorkoutTableViewCell.swift */,
+				3F8950E31D28741F003BCB7D /* BasicTableViewCell.swift */,
+				3F8950EF1D2A3D94003BCB7D /* SwitchTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3F50F26C1F0EC4AB0075BEB4 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				3F8950E41D28741F003BCB7D /* BasicTableViewCell.xib */,
+				3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */,
+			);
+			name = Xibs;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3F50F26D1F0EC4CC0075BEB4 /* Storage Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FB02B361D31BA33008DA4F8 /* Workout.swift */,
+				3FB02B381D31C34D008DA4F8 /* Database.swift */,
+			);
+			name = "Storage Classes";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3F50F26E1F0EC5060075BEB4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */,
+				3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */,
+				3FD4963D1ED511E900C3DBA5 /* UIViewController+CustomUI.swift */,
+			);
+			name = Extensions;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3F50F26F1F0EC5340075BEB4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F8950E91D2A2140003BCB7D /* Utils.swift */,
+				3FD2FB141F2E999800623E91 /* exit_white@3x.swift */,
+				3F8950EB1D2A216C003BCB7D /* ClientApplicationInterface.swift */,
+			);
+			name = Utils;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		3F8950A71D28672C003BCB7D = {
 			isa = PBXGroup;
 			children = (
-				3FD496111ED4B38B00C3DBA5 /* TimerScreenTests.swift */,
-				3FD495EA1ED4163700C3DBA5 /* Images */,
-				3F920A011ED36E26006B64A3 /* TimerProgressView.swift */,
-				3F8950EF1D2A3D94003BCB7D /* SwitchTableViewCell.swift */,
-				3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */,
-				3FB02B361D31BA33008DA4F8 /* Workout.swift */,
-				3FB02B381D31C34D008DA4F8 /* Database.swift */,
-				3F8950E31D28741F003BCB7D /* BasicTableViewCell.swift */,
-				3F8950E41D28741F003BCB7D /* BasicTableViewCell.xib */,
-				3F8950E91D2A2140003BCB7D /* Utils.swift */,
-				3F8950EB1D2A216C003BCB7D /* ClientApplicationInterface.swift */,
-				3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */,
-				3F8950ED1D2A37DA003BCB7D /* BlurNavigationController.swift */,
-				3F8950E71D287534003BCB7D /* AddTableViewController.swift */,
 				3F8950B21D28672C003BCB7D /* HIIT Sessions */,
 				3F8950C71D28672C003BCB7D /* HIIT SessionsTests */,
 				3F8950D21D28672C003BCB7D /* HIIT SessionsUITests */,
@@ -223,14 +239,14 @@
 		3F8950B21D28672C003BCB7D /* HIIT Sessions */ = {
 			isa = PBXGroup;
 			children = (
+				3F50F26F1F0EC5340075BEB4 /* Utils */,
+				3F50F26E1F0EC5060075BEB4 /* Extensions */,
+				3F50F26D1F0EC4CC0075BEB4 /* Storage Classes */,
+				3F50F26C1F0EC4AB0075BEB4 /* Xibs */,
+				3F50F26B1F0EC47E0075BEB4 /* TableViewCells */,
+				3F50F26A1F0EC45F0075BEB4 /* View Controllers */,
 				3F8950B31D28672C003BCB7D /* AppDelegate.swift */,
-				3F8950B51D28672C003BCB7D /* ViewController.swift */,
-				3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */,
 				3F8950B71D28672C003BCB7D /* Main.storyboard */,
-				3FD4963D1ED511E900C3DBA5 /* UIViewController+CustomUI.swift */,
-				3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */,
-				3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */,
-				3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */,
 				3F8950BA1D28672C003BCB7D /* Assets.xcassets */,
 				3F8950BC1D28672C003BCB7D /* LaunchScreen.storyboard */,
 				3F8950BF1D28672C003BCB7D /* Info.plist */,
@@ -255,31 +271,6 @@
 				3F8950D51D28672C003BCB7D /* Info.plist */,
 			);
 			path = "HIIT SessionsUITests";
-			sourceTree = "<group>";
-		};
-		3FD495EA1ED4163700C3DBA5 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				3FD495EB1ED4169000C3DBA5 /* cancel_white.png */,
-				3FD495EC1ED4169000C3DBA5 /* cancel_white@2x.png */,
-				3FD495ED1ED4169000C3DBA5 /* cancel_white@3x.png */,
-				3FD495EE1ED4169000C3DBA5 /* exit_white.png */,
-				3FD495EF1ED4169000C3DBA5 /* exit_white@2x.png */,
-				3FD495F01ED4169000C3DBA5 /* exit_white@3x.png */,
-				3FD495F11ED4169000C3DBA5 /* next_white.png */,
-				3FD495F21ED4169000C3DBA5 /* next_white@2x.png */,
-				3FD495F31ED4169000C3DBA5 /* next_white@3x.png */,
-				3FD495F41ED4169000C3DBA5 /* pause_white.png */,
-				3FD495F51ED4169000C3DBA5 /* pause_white@2x.png */,
-				3FD495F61ED4169000C3DBA5 /* pause_white@3x.png */,
-				3FD495F71ED4169000C3DBA5 /* play_white.png */,
-				3FD495F81ED4169000C3DBA5 /* play_white@2x.png */,
-				3FD495F91ED4169000C3DBA5 /* play_white@3x.png */,
-				3FD495FA1ED4169000C3DBA5 /* previous_white.png */,
-				3FD495FB1ED4169000C3DBA5 /* previous_white@2x.png */,
-				3FD495FC1ED4169000C3DBA5 /* previous_white@3x.png */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,29 +381,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD495FE1ED4169000C3DBA5 /* cancel_white@2x.png in Resources */,
-				3FD4960D1ED4169000C3DBA5 /* previous_white@2x.png in Resources */,
 				3F8950E61D28741F003BCB7D /* BasicTableViewCell.xib in Resources */,
-				3FD496021ED4169000C3DBA5 /* exit_white@3x.png in Resources */,
-				3FD496001ED4169000C3DBA5 /* exit_white.png in Resources */,
-				3FD496061ED4169000C3DBA5 /* pause_white.png in Resources */,
-				3FD496041ED4169000C3DBA5 /* next_white@2x.png in Resources */,
 				3F8950F21D2A3D94003BCB7D /* SwitchTableViewCell.xib in Resources */,
-				3FD496091ED4169000C3DBA5 /* play_white.png in Resources */,
-				3FD4960C1ED4169000C3DBA5 /* previous_white.png in Resources */,
-				3FD496011ED4169000C3DBA5 /* exit_white@2x.png in Resources */,
 				3F8950BE1D28672C003BCB7D /* LaunchScreen.storyboard in Resources */,
-				3FD496081ED4169000C3DBA5 /* pause_white@3x.png in Resources */,
-				3FD4960A1ED4169000C3DBA5 /* play_white@2x.png in Resources */,
-				3FD496051ED4169000C3DBA5 /* next_white@3x.png in Resources */,
-				3FD495FD1ED4169000C3DBA5 /* cancel_white.png in Resources */,
-				3FD496031ED4169000C3DBA5 /* next_white.png in Resources */,
 				3F8950BB1D28672C003BCB7D /* Assets.xcassets in Resources */,
-				3FD496071ED4169000C3DBA5 /* pause_white@2x.png in Resources */,
-				3FD4960B1ED4169000C3DBA5 /* play_white@3x.png in Resources */,
-				3FD4960E1ED4169000C3DBA5 /* previous_white@3x.png in Resources */,
 				3F8950B91D28672C003BCB7D /* Main.storyboard in Resources */,
-				3FD495FF1ED4169000C3DBA5 /* cancel_white@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +418,9 @@
 			files = (
 				3F8950E51D28741F003BCB7D /* BasicTableViewCell.swift in Sources */,
 				3FB02B391D31C34D008DA4F8 /* Database.swift in Sources */,
-				3F8950B61D28672C003BCB7D /* ViewController.swift in Sources */,
+				3FD2FB151F2E999800623E91 /* exit_white@3x.swift in Sources */,
+				3F50F2641F0DE5C40075BEB4 /* SavedWorkoutTableViewCell.swift in Sources */,
+				3FD2FB131F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift in Sources */,
 				3FD495E91ED413E800C3DBA5 /* SummaryViewController.swift in Sources */,
 				3FD4963E1ED511EA00C3DBA5 /* UIViewController+CustomUI.swift in Sources */,
 				3F8950EE1D2A37DA003BCB7D /* BlurNavigationController.swift in Sources */,
@@ -453,10 +428,10 @@
 				3FB02B371D31BA33008DA4F8 /* Workout.swift in Sources */,
 				3F920A001ED366E5006B64A3 /* UIView+FrameHelper.swift in Sources */,
 				3F8950E21D28677B003BCB7D /* TitleScreenViewController.swift in Sources */,
+				3F50F2601F0D8A8E0075BEB4 /* MediaPlayerViewController.swift in Sources */,
 				3F8950EC1D2A216C003BCB7D /* ClientApplicationInterface.swift in Sources */,
 				3F8950F11D2A3D94003BCB7D /* SwitchTableViewCell.swift in Sources */,
 				3F8950B41D28672C003BCB7D /* AppDelegate.swift in Sources */,
-				3F920A021ED36E26006B64A3 /* TimerProgressView.swift in Sources */,
 				3F8950E81D287534003BCB7D /* AddTableViewController.swift in Sources */,
 				3FB02B3B1D330C80008DA4F8 /* TimerScreenViewController.swift in Sources */,
 				3F8950EA1D2A2140003BCB7D /* Utils.swift in Sources */,
@@ -482,10 +457,7 @@
 				3FD4963A1ED4D07000C3DBA5 /* TimerScreenUITests.swift in Sources */,
 				3FD496371ED4B7E300C3DBA5 /* UIView+FrameHelper.swift in Sources */,
 				3FD496211ED4B7A600C3DBA5 /* BasicTableViewCell.swift in Sources */,
-				3FD496121ED4B38B00C3DBA5 /* TimerScreenTests.swift in Sources */,
 				3FD4961F1ED4B7A300C3DBA5 /* Database.swift in Sources */,
-				3FD496311ED4B7D400C3DBA5 /* ViewController.swift in Sources */,
-				3FD496191ED4B78D00C3DBA5 /* TimerProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,14 +465,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD496321ED4B7D500C3DBA5 /* ViewController.swift in Sources */,
 				3FD496221ED4B7A600C3DBA5 /* BasicTableViewCell.swift in Sources */,
 				3F8950D41D28672C003BCB7D /* HIIT_SessionsUITests.swift in Sources */,
 				3FD496361ED4B7DF00C3DBA5 /* SummaryViewController.swift in Sources */,
 				3FD4962B1ED4B7C900C3DBA5 /* BlurNavigationController.swift in Sources */,
 				3FD496261ED4B7C000C3DBA5 /* Utils.swift in Sources */,
 				3FD496301ED4B7D100C3DBA5 /* AppDelegate.swift in Sources */,
-				3FD4961A1ED4B78D00C3DBA5 /* TimerProgressView.swift in Sources */,
 				3FD4962E1ED4B7CD00C3DBA5 /* AddTableViewController.swift in Sources */,
 				3FD496281ED4B7C300C3DBA5 /* ClientApplicationInterface.swift in Sources */,
 				3FD496161ED4B6D500C3DBA5 /* TimerScreenViewController.swift in Sources */,
