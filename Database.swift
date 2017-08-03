@@ -25,7 +25,7 @@ class Database: NSObject {
     private func findWorkout(identifier : String) -> Int {
         var index = 0
         for workout in Database.sharedInstance.workouts {
-            if workout.identifier == identifier {
+            if workout.name == identifier {
                 return index
             }
             index+=1
@@ -35,13 +35,20 @@ class Database: NSObject {
     
     class func replaceWorkout(oldWorkout : Workout, newWorkout : Workout) {
         let sharedInstance = Database.sharedInstance
-        let index = sharedInstance.findWorkout(identifier: oldWorkout.identifier)
-        sharedInstance.workouts[index] = newWorkout
+        let index = sharedInstance.findWorkout(identifier: oldWorkout.name)
+        if index >= 0  {
+            sharedInstance.workouts[index] = newWorkout
+        }
         sharedInstance.save()
     }
     
     class func addWorkout(newWorkout : Workout) {
         let sharedInstance = Database.sharedInstance
+        
+        if (sharedInstance.findWorkout(identifier: newWorkout.name) != -1) {
+            return
+        }
+        
         sharedInstance.workouts.insert(newWorkout, at: 0)
         sharedInstance.save()
     }
@@ -86,7 +93,6 @@ class Database: NSObject {
     {
         let manager = FileManager.default
         let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-        print("this is the url path in the documentDirectory \(url)")
         return (url!.appendingPathComponent(Keys.kPathName.rawValue).path)
 
     }

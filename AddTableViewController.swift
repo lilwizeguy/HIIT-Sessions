@@ -137,25 +137,42 @@ class AddTableViewController: UITableViewController {
             var keyboardType: UIKeyboardType = UIKeyboardType.numberPad
             
             
+            
             switch indexPath.row {
                 case WorkoutRows.kNameRow.rawValue:
                     title = "Name"
+                    if workout != nil {
+                        cell.descriptionField.text = workout.name
+                    }
                     setField(src: &cell.descriptionField, dest: &self.nameField)
-                    keyboardType = .asciiCapableNumberPad
+
+                    keyboardType = .asciiCapable
                 case WorkoutRows.kLowRow.rawValue:
                     title = "Low Intensity"
+                    if workout != nil {
+                        cell.descriptionField.text = String.init(format: "%d", workout.lowIntensity.intValue)
+                    }
                     setField(src: &cell.descriptionField, dest: &self.lowField)
+
                 case WorkoutRows.kHighRow.rawValue:
                     title = "High Intensity"
+                    if workout != nil {
+                        cell.descriptionField.text = String.init(format: "%d", workout.highIntensity.intValue)
+                    }
                     setField(src: &cell.descriptionField, dest: &self.highField)
-                    break
+
                 case WorkoutRows.kCyclesRow.rawValue:
                     title = "Cycles"
+                    if workout != nil {
+                        cell.descriptionField.text = String.init(format: "%d", workout.numCycles.intValue)
+                    }
                     setField(src: &cell.descriptionField, dest: &self.cyclesField)
+
                 default:
                     title = ""
                     break
             }
+            
             
             cell.textLabel?.text = title
             cell.descriptionField.keyboardType = keyboardType

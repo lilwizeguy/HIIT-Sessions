@@ -22,13 +22,13 @@ class ClientApplicationInterface: NSObject {
 
     class func applicationRedColor() -> UIColor
     {
-        return ColorConversions.rgb(210.0, g: 118.0, b: 118.0, alpha: 1.0)
+        return ColorConversions.rgb(153.0, g: 85.0, b: 85.0, alpha: 1.0)
     
     }
     
     class func applicationBlueColor() -> UIColor
     {
-        return ColorConversions.rgb(85.0, g: 147.0, b: 153.0, alpha: 1.0)
+        return ColorConversions.rgb(85.0, g: 120.0, b: 153.0, alpha: 1.0)
         
     }
     

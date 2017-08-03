@@ -48,9 +48,26 @@ class TimerScreenViewController: UIViewController {
     var cycleTime = 1;
     
 
+    var animationView: UIView!
 
     @IBOutlet var timerLabel: UILabel!
-    var animationView: UIView!
+    @IBOutlet var cyclesLabel: UILabel!
+    
+    
+    @IBAction func onClose(_ sender: Any) {
+        let closeController = UIAlertController.init(title: "Cancel Workout", message: "Are you sure you want to cancel the workout?", preferredStyle: .actionSheet)
+        
+        closeController.addAction(UIAlertAction.init(title: "Yes", style: .destructive, handler: { (action) in
+            self.mainTimer.invalidate()
+            self.dismiss(animated: true, completion: nil)
+
+        }))
+            
+        closeController.addAction(UIAlertAction.init(title: "No", style: .default, handler: nil))
+        
+        self.present(closeController, animated: true, completion: nil)
+        
+    }
     
     
     func updateTimerLabel(currentTime : StopwatchModel) {
@@ -76,8 +93,8 @@ class TimerScreenViewController: UIViewController {
         }
         isHigh = !isHigh
         self.cycleTime = self.getCycleTime()
-        self.updateCycleView()
         self.totalCycles-=1
+        self.updateCycleView()
         self.startTime = Date.init()
     }
     
@@ -89,7 +106,34 @@ class TimerScreenViewController: UIViewController {
         
     }
     
+    let warmupDuration = 60.0
+    func updateWarmupTime() {
+        var timeDifference : TimeInterval = Date.init().timeIntervalSince(startTime)
+        
+        if (Int(timeDifference) == Int(warmupDuration)) {
+            mainTimer.invalidate()
+            startMainTimer()
+        }
+
+        let warmupTime = warmupDuration
+        timeDifference = warmupTime - timeDifference
+        
+        
+        let secondsRemaining = Int(timeDifference) % 60
+        let minutesRemaining = Int(timeDifference) / 60
+        let millisecondsRemaining = Int(timeDifference * 100) - (secondsRemaining * 100) - (minutesRemaining * 60 * 100)
+        
+        
+        let currentTime : StopwatchModel = StopwatchModel.init(min: minutesRemaining, sec: secondsRemaining, mil: millisecondsRemaining)
+        self.updateTimerLabel(currentTime: currentTime)
+
+    }
+    
     func updateCycleView() {
+        if (self.totalCycles % 2 == 0) {
+            self.cyclesLabel.text = String.init(format:"%d cycles remaining", self.totalCycles / 2)
+        }
+        
         if (self.isHigh == true ) {
             self.animationView.backgroundColor = ClientApplicationInterface.applicationBlueColor()
         }
@@ -107,8 +151,15 @@ class TimerScreenViewController: UIViewController {
             startTime = Date()
             
         }
-            
-        timeDifference = Double.init(workout.highIntensity) - timeDifference
+        
+        var totalTime = 0.0
+        if self.isHigh {
+            totalTime = Double.init(workout.highIntensity)
+        }
+        else {
+            totalTime = Double.init(workout.lowIntensity)
+        }
+        timeDifference = totalTime - timeDifference
 
         
         let secondsRemaining = Int(timeDifference) % 60
@@ -118,7 +169,7 @@ class TimerScreenViewController: UIViewController {
         
         let currentTime : StopwatchModel = StopwatchModel.init(min: minutesRemaining, sec: secondsRemaining, mil: millisecondsRemaining)
         self.updateTimerLabel(currentTime: currentTime)
-        self.updateTimerAnimation(percentageComplete: Float(timeDifference) / Float(cycleTime))
+       // self.updateTimerAnimation(percentageComplete: Float(timeDifference) / Float(cycleTime))
         
     }
 
@@ -132,29 +183,71 @@ class TimerScreenViewController: UIViewController {
         }
 
     }
+
+    func updateInitialTimeLabel(currentTime : StopwatchModel) {
+        DispatchQueue.main.async {
+            self.timerLabel.text = String.localizedStringWithFormat("%d", currentTime.seconds)
+        }
+
+    }
+    
+    func startMainTimer() {
+        mainTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TimerScreenViewController.updateTime), userInfo: nil, repeats: true)
+        startTime = Date.init()
+        
+        // janky but works DO IN THIS ORDER
+        self.isHigh = true
+        self.totalCycles = self.workout?.numCycles as! Int * 2
+        self.updateCycleView()
+        cycleTime = self.getCycleTime()
+    }
+    func updateInitialTimer() {
+        var timeDifference : TimeInterval = Date.init().timeIntervalSince(startTime)
+
+        if Int(timeDifference) == 3 {
+            mainTimer.invalidate()
+            
+            if (workout.warmup == true) {
+                self.cyclesLabel.text = "Warmup!"
+                mainTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TimerScreenViewController.updateWarmupTime), userInfo: nil, repeats: true)
+                startTime = Date.init()
+            }
+            else {
+                startMainTimer()
+            }
+
+            
+            
+            RunLoop.main.add(mainTimer, forMode: RunLoopMode.commonModes)
+            
+        }
+        
+        timeDifference = 3 - timeDifference
+
+        let secondsRemaining = Int(timeDifference) % 60
+        let currentTime : StopwatchModel = StopwatchModel.init(min: 0, sec: secondsRemaining, mil: 0)
+        self.updateInitialTimeLabel(currentTime: currentTime)
+        
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.animationView = UIView.init(frame: self.view.frame)
         self.animationView.backgroundColor = ClientApplicationInterface.applicationGreenColor()
-        self.animationView.fillUpwards(percentageComplete: 0.5, maxHeight: self.view.frame.size.height)
+        self.animationView.fillUpwards(percentageComplete: 1.0, maxHeight: self.view.frame.size.height)
         self.view.addSubview(self.animationView)
         self.view.sendSubview(toBack: self.animationView)
+        
+        self.timerLabel.text = "4"
+        self.cyclesLabel.text = "Warmup!"
 
-        
-        mainTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TimerScreenViewController.updateTime), userInfo: nil, repeats: true)
+
+        mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerScreenViewController.updateInitialTimer), userInfo: nil, repeats: true)
         startTime = Date.init()
-        
-      //  self.workout = Workout(_name: "Sup", _numCycles: 2, _highIntensity: 5, _lowIntensity: 3, _warmup: 0, _cooldown: 0)
-        
-        self.isHigh = false
-        cycleTime = self.getCycleTime()
-        self.totalCycles = self.workout?.numCycles as! Int * 2
-        
-        
         RunLoop.main.add(mainTimer, forMode: RunLoopMode.commonModes)
-        
+
         // Do any additional setup after loading the view.
     }
 

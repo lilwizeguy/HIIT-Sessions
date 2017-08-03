@@ -49,19 +49,25 @@ class MediaPlayerViewController: UIViewController {
     
     
     @IBAction func onPrevious(_ sender: Any) {
-        if (musicPlayer.currentPlaybackTime < 5) {
-            musicPlayer.skipToBeginning()
+        DispatchQueue
+            .global(qos: .userInitiated).async {
+            if (self.musicPlayer.currentPlaybackTime < 5) {
+                self.musicPlayer.skipToBeginning()
+            }
+            else {
+                self.musicPlayer.skipToPreviousItem()
+                self.updateTitles()
+                
+            }
         }
-        else {
-            musicPlayer.skipToPreviousItem()
-            updateTitles()
-
-        }
+        
     }
     
     @IBAction func onNext(_ sender: Any) {
-        musicPlayer.skipToNextItem()
-        updateTitles()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.musicPlayer.skipToNextItem()
+            self.updateTitles()
+        }
 
     }
     
@@ -78,11 +84,14 @@ class MediaPlayerViewController: UIViewController {
             image = #imageLiteral(resourceName: "pause-button")
         }
         
-        self.playPauseButton.setImage(image, for: .normal)
-
+        DispatchQueue.main.async {
+            self.playPauseButton.setImage(image, for: .normal)
+        }
+            
     }
     
     @IBAction func onPlayPause(_ sender: Any) {
+        
         self.setPlayPauseImage()
         if isPlaying() {
             musicPlayer.pause()
@@ -98,13 +107,15 @@ class MediaPlayerViewController: UIViewController {
         super.viewDidLoad()
         self.setPlayPauseImage()
 
-        let query = MPMediaQuery.songs()
         
-        if (musicPlayer.nowPlayingItem == nil) {
-            musicPlayer.setQueue(with: query)
-        }
-        updateTitles()
+        DispatchQueue.global(qos: .userInitiated).async {
+            let query = MPMediaQuery.songs()
+            if (self.musicPlayer.nowPlayingItem == nil) {
+                self.musicPlayer.setQueue(with: query)
+            }
+            self.updateTitles()
 
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -118,8 +129,10 @@ class MediaPlayerViewController: UIViewController {
         guard musicPlayer.nowPlayingItem != nil else {
             return
         }
-        self.songTitleLabel.text = musicPlayer.nowPlayingItem?.title
-        self.songDescriptionLabel.text = musicPlayer.nowPlayingItem?.artist
+        DispatchQueue.main.async {
+            self.songTitleLabel.text = self.musicPlayer.nowPlayingItem?.title
+            self.songDescriptionLabel.text = self.musicPlayer.nowPlayingItem?.artist
+        }
     }
 
     /*

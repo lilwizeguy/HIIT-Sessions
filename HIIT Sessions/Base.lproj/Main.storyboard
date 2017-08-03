@@ -164,7 +164,10 @@
                                     <constraint firstAttribute="width" constant="50" id="fCO-48-iSE"/>
                                     <constraint firstAttribute="height" constant="50" id="iEv-Bc-aTx"/>
                                 </constraints>
-                                <state key="normal" image="cancel_white.png"/>
+                                <state key="normal" title="Exit"/>
+                                <connections>
+                                    <action selector="onClose:" destination="4Zs-dt-Vzd" eventType="touchUpInside" id="dhT-vO-IC1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -184,6 +187,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cyclesLabel" destination="FlJ-5J-qph" id="x6p-fR-VyV"/>
                         <outlet property="timerLabel" destination="7SE-cJ-73z" id="ZFC-Q9-7rd"/>
                         <segue destination="BF8-0D-4ZU" kind="presentation" identifier="slidingToSummary" modalPresentationStyle="overCurrentContext" id="KSO-gT-MHY"/>
                     </connections>
@@ -195,6 +199,7 @@
         <!--Summary View Controller-->
         <scene sceneID="baF-bF-vjc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4o-xB-bLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="BF8-0D-4ZU" customClass="SummaryViewController" customModule="HIIT_Sessions" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JsM-oU-pwo"/>
@@ -264,13 +269,13 @@
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S4o-xB-bLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2941.5999999999999" y="430.43478260869568"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mUF-6V-teP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hz8-a4-nif" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="BzL-wx-5gi" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" id="IuS-EU-9UI">
@@ -284,14 +289,13 @@
                         <segue destination="S2S-Z0-W3u" kind="relationship" relationship="rootViewController" id="N8X-dR-oJF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hz8-a4-nif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="1196"/>
         </scene>
         <!--Add Workout-->
         <scene sceneID="4pm-Bv-rbr">
             <objects>
-                <tableViewController id="S2S-Z0-W3u" customClass="AddTableViewController" customModule="HIIT_Sessions" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S2S-Z0-W3u" customClass="AddTableViewController" customModule="HIIT_Sessions" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="AvO-Au-r9J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,12 +551,18 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv4-vg-hnJ">
-                                            <rect key="frame" x="304" y="20" width="51" height="15"/>
+                                            <rect key="frame" x="304" y="0.0" width="71" height="58"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="51" id="x8Z-I4-bWs"/>
-                                                <constraint firstAttribute="height" constant="15" id="xnF-4n-zn4"/>
+                                                <constraint firstAttribute="width" constant="71" id="x8Z-I4-bWs"/>
+                                                <constraint firstAttribute="height" constant="58" id="xnF-4n-zn4"/>
                                             </constraints>
-                                            <state key="normal" image="more-icon"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onEdit:" destination="lPe-QB-KJf" eventType="touchUpInside" id="BND-WS-oga"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -575,11 +585,11 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="B6I-wy-GPa" secondAttribute="trailing" constant="12" id="XNe-vW-JEp"/>
                                     <constraint firstItem="AYv-Zl-N1r" firstAttribute="top" secondItem="0sT-Jy-gxL" secondAttribute="bottom" constant="7" id="YVx-9E-QNn"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="IDI-vE-OW7" secondAttribute="bottom" constant="9" id="ZuP-vD-nVW"/>
-                                    <constraint firstItem="hv4-vg-hnJ" firstAttribute="top" secondItem="lPe-QB-KJf" secondAttribute="topMargin" constant="12" id="bkH-a7-jre"/>
+                                    <constraint firstItem="hv4-vg-hnJ" firstAttribute="top" secondItem="lPe-QB-KJf" secondAttribute="topMargin" constant="-8" id="bkH-a7-jre"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="dse-4n-IS9" secondAttribute="trailing" constant="12" id="c5l-mb-E3q"/>
                                     <constraint firstItem="den-uQ-ax0" firstAttribute="top" secondItem="AYv-Zl-N1r" secondAttribute="bottom" constant="7" id="hoA-tG-Ozr"/>
                                     <constraint firstItem="AYv-Zl-N1r" firstAttribute="leading" secondItem="lPe-QB-KJf" secondAttribute="leadingMargin" constant="12" id="ixT-iN-POM"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="hv4-vg-hnJ" secondAttribute="trailing" constant="12" id="kAA-1v-aU2"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="hv4-vg-hnJ" secondAttribute="trailing" constant="-8" id="kAA-1v-aU2"/>
                                     <constraint firstItem="AYv-Zl-N1r" firstAttribute="top" secondItem="0sT-Jy-gxL" secondAttribute="bottom" constant="7" id="kDA-1Q-PDK"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="den-uQ-ax0" secondAttribute="bottom" constant="9" id="kP7-cq-gUv"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="I6B-LA-QtK" secondAttribute="trailing" constant="12" id="qdJ-I2-6x9"/>
@@ -620,12 +630,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel_white.png" width="50" height="50"/>
         <image name="cycle-bullet" width="52" height="52"/>
         <image name="exit_white.png" width="75" height="75"/>
         <image name="high-bullet" width="50" height="50"/>
         <image name="low-bullet" width="50" height="50"/>
-        <image name="more-icon" width="60" height="17"/>
         <image name="next-button" width="30" height="29"/>
         <image name="play-button" width="19" height="30"/>
         <image name="previous-button" width="30" height="29"/>

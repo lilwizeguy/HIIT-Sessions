@@ -34,6 +34,17 @@ class Workout: NSObject {
         
     }
     
+    init(other : Workout) {
+        super.init()
+        self.name = other.name
+        self.numCycles = other.numCycles
+        self.highIntensity = other.highIntensity
+        self.lowIntensity = other.lowIntensity
+        self.warmup = other.warmup
+        self.cooldown = other.cooldown
+        self.identifier = other.identifier
+    }
+    
     init(_name: String,
          _numCycles: NSNumber,
          _highIntensity: NSNumber,

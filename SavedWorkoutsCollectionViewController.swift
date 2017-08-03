@@ -10,7 +10,16 @@ import UIKit
 
 private let reuseIdentifier = "savedCell"
 
+protocol SavedCellDelegate {
+    
+    func onEdit(editWorkout : Workout);
+
+}
+
 class SavedCollectionViewCell : UICollectionViewCell {
+    
+    var delegate : SavedCellDelegate!
+
     
     var model:Workout! {
         didSet {
@@ -45,6 +54,10 @@ class SavedCollectionViewCell : UICollectionViewCell {
     @IBOutlet var lowLabel: UILabel!
     @IBOutlet var warmupLabel: UILabel!
     
+    @IBAction func onEdit(_ sender: Any) {
+        self.delegate.onEdit(editWorkout: self.model)
+    }
+    
 }
 
 
@@ -69,11 +82,37 @@ class WorkoutCardFlowLayout: UICollectionViewFlowLayout {
 }
 
 
-class SavedWorkoutsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SubmitDelegate{
+class SavedWorkoutsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SubmitDelegate, SavedCellDelegate{
+    
+    
+    // [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"ViewController"];
+    func createAddController() -> AddTableViewController! {
+        let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddTableViewController") as! AddTableViewController
+        controller.delegate = self
+        return controller
+    }
 
-    @IBAction func onAdd(_ sender: Any) {
+    func navControllerWithRootViewController(controller : UIViewController) -> UINavigationController {
         
-        self.performSegue(withIdentifier: "onAdd", sender: self)
+        let navController = UINavigationController.init(rootViewController: controller)
+        return navController
+        
+    }
+    
+    @IBAction func onAdd(_ sender: Any) {
+        let addController = createAddController()
+        let navController = navControllerWithRootViewController(controller: addController!)
+        navController.navigationBar.barStyle = .blackTranslucent
+        self.present(navController, animated: true, completion: nil)
+        
+    }
+    
+    func onEdit(editWorkout: Workout) {
+        let addController = createAddController()
+        addController?.workout = editWorkout
+        let navController = navControllerWithRootViewController(controller: addController!)
+        self.present(navController, animated: true, completion: nil)
+
         
     }
     
@@ -117,11 +156,6 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
             let controller = segue.destination as! TimerScreenViewController
             controller.workout = selected
         }
-        else if segue.identifier == "onAdd" {
-            let navController = segue.destination as! UINavigationController
-            let controller = navController.topViewController as! AddTableViewController
-            controller.delegate = self
-        }
 
     }
     
@@ -146,10 +180,8 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SavedCollectionViewCell
         cell.layer.borderColor = UIColor.white.cgColor
         cell.model = model
-       // cell.layer.borderWidth = 1.0
-    
-        // Configure the cell
-    
+        cell.delegate = self
+
         return cell
     }
     
