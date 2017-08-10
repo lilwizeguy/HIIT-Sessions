@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreAudioKit
 
 
 struct StopwatchModel {
@@ -110,7 +111,7 @@ class TimerScreenViewController: UIViewController {
     func updateWarmupTime() {
         var timeDifference : TimeInterval = Date.init().timeIntervalSince(startTime)
         
-        if (Int(timeDifference) == Int(warmupDuration)) {
+        if (Int(timeDifference) >= Int(warmupDuration)) {
             mainTimer.invalidate()
             startMainTimer()
         }
@@ -143,14 +144,12 @@ class TimerScreenViewController: UIViewController {
         }
     }
 
+    func vibrate() {
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+    }
+    
     func updateTime() {
         var timeDifference : TimeInterval = Date.init().timeIntervalSince(startTime)
-        
-        if (Int(timeDifference) == Int(workout.highIntensity)) {
-            resetTimer()
-            startTime = Date()
-            
-        }
         
         var totalTime = 0.0
         if self.isHigh {
@@ -159,6 +158,16 @@ class TimerScreenViewController: UIViewController {
         else {
             totalTime = Double.init(workout.lowIntensity)
         }
+        
+        
+        if (Int(timeDifference) >= Int.init(totalTime)) {
+            vibrate()
+            resetTimer()
+            startTime = Date()
+            
+        }
+        
+        
         timeDifference = totalTime - timeDifference
 
         
@@ -204,9 +213,9 @@ class TimerScreenViewController: UIViewController {
     func updateInitialTimer() {
         var timeDifference : TimeInterval = Date.init().timeIntervalSince(startTime)
 
-        if Int(timeDifference) == 3 {
+        if Int(timeDifference) >= 4 {
             mainTimer.invalidate()
-            
+            vibrate()
             if (workout.warmup == true) {
                 self.cyclesLabel.text = "Warmup!"
                 mainTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TimerScreenViewController.updateWarmupTime), userInfo: nil, repeats: true)
@@ -222,12 +231,40 @@ class TimerScreenViewController: UIViewController {
             
         }
         
-        timeDifference = 3 - timeDifference
+        timeDifference = 4 - timeDifference
 
         let secondsRemaining = Int(timeDifference) % 60
         let currentTime : StopwatchModel = StopwatchModel.init(min: 0, sec: secondsRemaining, mil: 0)
         self.updateInitialTimeLabel(currentTime: currentTime)
         
+
+    }
+    
+    func startSound() {
+        let path = Bundle.main.path(forResource: "start", ofType: "wav")
+        let pathURL = URL.init(fileURLWithPath: path!)
+        
+        var audioEffect : SystemSoundID = 0
+        AudioServicesCreateSystemSoundID(pathURL as CFURL, &audioEffect)
+        AudioServicesPlaySystemSound(audioEffect)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.startSound()
+        
+        self.timerLabel.text = "3"
+        self.cyclesLabel.text = "Ready!"
+        
+        
+        mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerScreenViewController.updateInitialTimer), userInfo: nil, repeats: true)
+        startTime = Date.init()
+        RunLoop.main.add(mainTimer, forMode: RunLoopMode.commonModes)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
 
     }
     
@@ -240,13 +277,6 @@ class TimerScreenViewController: UIViewController {
         self.view.addSubview(self.animationView)
         self.view.sendSubview(toBack: self.animationView)
         
-        self.timerLabel.text = "4"
-        self.cyclesLabel.text = "Warmup!"
-
-
-        mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerScreenViewController.updateInitialTimer), userInfo: nil, repeats: true)
-        startTime = Date.init()
-        RunLoop.main.add(mainTimer, forMode: RunLoopMode.commonModes)
 
         // Do any additional setup after loading the view.
     }
@@ -256,19 +286,6 @@ class TimerScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

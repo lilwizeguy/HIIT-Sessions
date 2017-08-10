@@ -33,6 +33,15 @@ class Database: NSObject {
         return -1
     }
     
+    class func deleteWorkout(workout : Workout) {
+        let sharedInstance = Database.sharedInstance
+        let index = sharedInstance.findWorkout(identifier: workout.name)
+        if index >= 0  {
+            sharedInstance.workouts.remove(at: index)
+        }
+        sharedInstance.save()
+    }
+    
     class func replaceWorkout(oldWorkout : Workout, newWorkout : Workout) {
         let sharedInstance = Database.sharedInstance
         let index = sharedInstance.findWorkout(identifier: oldWorkout.name)

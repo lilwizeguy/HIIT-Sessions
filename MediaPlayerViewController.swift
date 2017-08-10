@@ -51,7 +51,7 @@ class MediaPlayerViewController: UIViewController {
     @IBAction func onPrevious(_ sender: Any) {
         DispatchQueue
             .global(qos: .userInitiated).async {
-            if (self.musicPlayer.currentPlaybackTime < 5) {
+            if (self.musicPlayer.currentPlaybackTime > 2) {
                 self.musicPlayer.skipToBeginning()
             }
             else {
@@ -73,8 +73,24 @@ class MediaPlayerViewController: UIViewController {
     
     
     func isPlaying() -> Bool {
-        return AVAudioSession.sharedInstance().isOtherAudioPlaying
+        return self.musicPlayer.playbackState == MPMusicPlaybackState.playing
 
+    }
+    
+    func setForPause() {
+        
+        DispatchQueue.main.async {
+            self.playPauseButton.layer.add(self.titleTransition(), forKey: kCATransitionFade)
+            self.playPauseButton.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
+        }
+        
+    }
+    
+    func setForPlaying() {
+        DispatchQueue.main.async {
+            self.playPauseButton.layer.add(self.titleTransition(), forKey: kCATransitionFade)
+            self.playPauseButton.setImage(#imageLiteral(resourceName: "pause-button"), for: .normal)
+        }
     }
     
     func setPlayPauseImage() {
@@ -85,6 +101,7 @@ class MediaPlayerViewController: UIViewController {
         }
         
         DispatchQueue.main.async {
+            self.playPauseButton.imageView?.layer.add(self.titleTransition(), forKey: kCATransitionFade)
             self.playPauseButton.setImage(image, for: .normal)
         }
             
@@ -92,20 +109,18 @@ class MediaPlayerViewController: UIViewController {
     
     @IBAction func onPlayPause(_ sender: Any) {
         
-        self.setPlayPauseImage()
         if isPlaying() {
             musicPlayer.pause()
+            self.setForPause()
         }
         else {
             musicPlayer.play()
-            
+            self.setForPlaying()
         }
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setPlayPauseImage()
 
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -113,11 +128,17 @@ class MediaPlayerViewController: UIViewController {
             if (self.musicPlayer.nowPlayingItem == nil) {
                 self.musicPlayer.setQueue(with: query)
             }
-            self.updateTitles()
-
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    func titleTransition() -> CATransition {
+        let animation = CATransition.init()
+        animation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionLinear)
+        animation.type = kCATransitionFade
+        animation.duration = 0.2
+        return animation
     }
 
     override func didReceiveMemoryWarning() {
@@ -130,11 +151,33 @@ class MediaPlayerViewController: UIViewController {
             return
         }
         DispatchQueue.main.async {
+            self.songTitleLabel.layer.add(self.titleTransition(), forKey: kCATransitionFade)
+            self.songDescriptionLabel.layer.add(self.titleTransition(), forKey: kCATransitionFade)
+            
             self.songTitleLabel.text = self.musicPlayer.nowPlayingItem?.title
             self.songDescriptionLabel.text = self.musicPlayer.nowPlayingItem?.artist
         }
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateTitles()
+        self.setPlayPauseImage()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MediaPlayerViewController.willEnterForeground), name: NSNotification.Name(rawValue: "willEnterForeground"), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    func willEnterForeground() {
+        self.updateTitles()
+        self.setPlayPauseImage()
+    }
+    
     /*
     // MARK: - Navigation
 

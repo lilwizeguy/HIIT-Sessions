@@ -15,7 +15,6 @@
 		3F8950BE1D28672C003BCB7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950BC1D28672C003BCB7D /* LaunchScreen.storyboard */; };
 		3F8950C91D28672C003BCB7D /* HIIT_SessionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950C81D28672C003BCB7D /* HIIT_SessionsTests.swift */; };
 		3F8950D41D28672C003BCB7D /* HIIT_SessionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950D31D28672C003BCB7D /* HIIT_SessionsUITests.swift */; };
-		3F8950E21D28677B003BCB7D /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */; };
 		3F8950E51D28741F003BCB7D /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E31D28741F003BCB7D /* BasicTableViewCell.swift */; };
 		3F8950E61D28741F003BCB7D /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950E41D28741F003BCB7D /* BasicTableViewCell.xib */; };
 		3F8950E81D287534003BCB7D /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E71D287534003BCB7D /* AddTableViewController.swift */; };
@@ -26,14 +25,13 @@
 		3F8950F21D2A3D94003BCB7D /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */; };
 		3F9209FE1ED11B5A006B64A3 /* UIButton+RoundedButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */; };
 		3F920A001ED366E5006B64A3 /* UIView+FrameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */; };
+		3F9870581F384FDA00A1495F /* start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F9870571F384FDA00A1495F /* start.wav */; };
 		3FB02B371D31BA33008DA4F8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B361D31BA33008DA4F8 /* Workout.swift */; };
 		3FB02B391D31C34D008DA4F8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B381D31C34D008DA4F8 /* Database.swift */; };
 		3FB02B3B1D330C80008DA4F8 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
 		3FD2FB131F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2FB121F2DBAC100623E91 /* SavedWorkoutsCollectionViewController.swift */; };
 		3FD2FB151F2E999800623E91 /* exit_white@3x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2FB141F2E999800623E91 /* exit_white@3x.swift */; };
 		3FD495E91ED413E800C3DBA5 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */; };
-		3FD496131ED4B6AF00C3DBA5 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */; };
-		3FD496141ED4B6B000C3DBA5 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */; };
 		3FD496151ED4B6D400C3DBA5 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
 		3FD496161ED4B6D500C3DBA5 /* TimerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */; };
 		3FD496171ED4B6E900C3DBA5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02B361D31BA33008DA4F8 /* Workout.swift */; };
@@ -102,7 +100,6 @@
 		3F8950CF1D28672C003BCB7D /* HIIT SessionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HIIT SessionsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8950D31D28672C003BCB7D /* HIIT_SessionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIIT_SessionsUITests.swift; sourceTree = "<group>"; };
 		3F8950D51D28672C003BCB7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleScreenViewController.swift; path = "HIIT Sessions/TitleScreenViewController.swift"; sourceTree = "<group>"; };
 		3F8950E31D28741F003BCB7D /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		3F8950E41D28741F003BCB7D /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		3F8950E71D287534003BCB7D /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +110,7 @@
 		3F8950F01D2A3D94003BCB7D /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		3F9209FD1ED11B5A006B64A3 /* UIButton+RoundedButon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+RoundedButon.swift"; sourceTree = "<group>"; };
 		3F9209FF1ED366E4006B64A3 /* UIView+FrameHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+FrameHelper.swift"; path = "HIIT Sessions/UIView+FrameHelper.swift"; sourceTree = "<group>"; };
+		3F9870571F384FDA00A1495F /* start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = start.wav; sourceTree = "<group>"; };
 		3FB02B361D31BA33008DA4F8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		3FB02B381D31C34D008DA4F8 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerScreenViewController.swift; path = "HIIT Sessions/TimerScreenViewController.swift"; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		3F50F26A1F0EC45F0075BEB4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3F8950E11D28677B003BCB7D /* TitleScreenViewController.swift */,
 				3FD495E81ED413E800C3DBA5 /* SummaryViewController.swift */,
 				3FB02B3A1D330C80008DA4F8 /* TimerScreenViewController.swift */,
 				3F8950ED1D2A37DA003BCB7D /* BlurNavigationController.swift */,
@@ -239,6 +236,7 @@
 		3F8950B21D28672C003BCB7D /* HIIT Sessions */ = {
 			isa = PBXGroup;
 			children = (
+				3F9870561F384FC800A1495F /* Sounds */,
 				3F50F26F1F0EC5340075BEB4 /* Utils */,
 				3F50F26E1F0EC5060075BEB4 /* Extensions */,
 				3F50F26D1F0EC4CC0075BEB4 /* Storage Classes */,
@@ -271,6 +269,14 @@
 				3F8950D51D28672C003BCB7D /* Info.plist */,
 			);
 			path = "HIIT SessionsUITests";
+			sourceTree = "<group>";
+		};
+		3F9870561F384FC800A1495F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3F9870571F384FDA00A1495F /* start.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F8950E61D28741F003BCB7D /* BasicTableViewCell.xib in Resources */,
+				3F9870581F384FDA00A1495F /* start.wav in Resources */,
 				3F8950F21D2A3D94003BCB7D /* SwitchTableViewCell.xib in Resources */,
 				3F8950BE1D28672C003BCB7D /* LaunchScreen.storyboard in Resources */,
 				3F8950BB1D28672C003BCB7D /* Assets.xcassets in Resources */,
@@ -427,7 +434,6 @@
 				3F9209FE1ED11B5A006B64A3 /* UIButton+RoundedButon.swift in Sources */,
 				3FB02B371D31BA33008DA4F8 /* Workout.swift in Sources */,
 				3F920A001ED366E5006B64A3 /* UIView+FrameHelper.swift in Sources */,
-				3F8950E21D28677B003BCB7D /* TitleScreenViewController.swift in Sources */,
 				3F50F2601F0D8A8E0075BEB4 /* MediaPlayerViewController.swift in Sources */,
 				3F8950EC1D2A216C003BCB7D /* ClientApplicationInterface.swift in Sources */,
 				3F8950F11D2A3D94003BCB7D /* SwitchTableViewCell.swift in Sources */,
@@ -446,7 +452,6 @@
 				3FD4962D1ED4B7CD00C3DBA5 /* AddTableViewController.swift in Sources */,
 				3F8950C91D28672C003BCB7D /* HIIT_SessionsTests.swift in Sources */,
 				3FD4962F1ED4B7D000C3DBA5 /* AppDelegate.swift in Sources */,
-				3FD496131ED4B6AF00C3DBA5 /* TitleScreenViewController.swift in Sources */,
 				3FD4961B1ED4B79100C3DBA5 /* SwitchTableViewCell.swift in Sources */,
 				3FD496351ED4B7DF00C3DBA5 /* SummaryViewController.swift in Sources */,
 				3FD496271ED4B7C300C3DBA5 /* ClientApplicationInterface.swift in Sources */,
@@ -474,7 +479,6 @@
 				3FD4962E1ED4B7CD00C3DBA5 /* AddTableViewController.swift in Sources */,
 				3FD496281ED4B7C300C3DBA5 /* ClientApplicationInterface.swift in Sources */,
 				3FD496161ED4B6D500C3DBA5 /* TimerScreenViewController.swift in Sources */,
-				3FD496141ED4B6B000C3DBA5 /* TitleScreenViewController.swift in Sources */,
 				3FD496181ED4B6EA00C3DBA5 /* Workout.swift in Sources */,
 				3FD496201ED4B7A300C3DBA5 /* Database.swift in Sources */,
 				3FD4961C1ED4B79100C3DBA5 /* SwitchTableViewCell.swift in Sources */,
@@ -612,6 +616,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "IA.HIIT-Sessions";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -626,6 +631,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "IA.HIIT-Sessions";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

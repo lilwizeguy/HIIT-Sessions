@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreAudioKit
 
 private let reuseIdentifier = "savedCell"
 
@@ -32,7 +33,7 @@ class SavedCollectionViewCell : UICollectionViewCell {
     }
     
     func cyclesString(cycles : Int) -> String {
-        return String.init(format: "x%d", cycles)
+        return String.init(format: "%d cycles", cycles)
         
     }
     
@@ -55,6 +56,7 @@ class SavedCollectionViewCell : UICollectionViewCell {
     @IBOutlet var warmupLabel: UILabel!
     
     @IBAction func onEdit(_ sender: Any) {
+
         self.delegate.onEdit(editWorkout: self.model)
     }
     
@@ -82,8 +84,8 @@ class WorkoutCardFlowLayout: UICollectionViewFlowLayout {
 }
 
 
-class SavedWorkoutsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SubmitDelegate, SavedCellDelegate{
-    
+class SavedWorkoutsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SubmitDelegate, SavedCellDelegate {
+
     
     // [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"ViewController"];
     func createAddController() -> AddTableViewController! {
@@ -95,6 +97,8 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
     func navControllerWithRootViewController(controller : UIViewController) -> UINavigationController {
         
         let navController = UINavigationController.init(rootViewController: controller)
+        navController.navigationBar.barStyle = .blackTranslucent
+        navController.modalPresentationStyle = .overCurrentContext
         return navController
         
     }
@@ -108,12 +112,24 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
     }
     
     func onEdit(editWorkout: Workout) {
-        let addController = createAddController()
-        addController?.workout = editWorkout
-        let navController = navControllerWithRootViewController(controller: addController!)
-        self.present(navController, animated: true, completion: nil)
-
         
+        let actionController = UIAlertController.init(title: "More Actions", message: nil, preferredStyle: .actionSheet)
+        actionController.addAction(UIAlertAction.init(title: "Edit Workout", style: .default, handler: { (action) in
+            
+            let addController = self.createAddController()
+            addController?.workout = editWorkout
+            let navController = self.navControllerWithRootViewController(controller: addController!)
+            self.present(navController, animated: true, completion: nil)
+        }))
+        
+        actionController.addAction(UIAlertAction.init(title: "Delete Workout", style: .destructive, handler: { (action) in
+            Database.deleteWorkout(workout: editWorkout)
+            self.collectionView?.reloadData()
+        }))
+        
+        actionController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionController, animated: true, completion: nil)
     }
     
     var selected : Workout!
@@ -167,7 +183,7 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
         return 1
     }
 
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return Database.sharedInstance.workouts.count
@@ -188,19 +204,9 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize.init(width: self.view.frame.size.width - 20, height: 152)
+        return CGSize.init(width: self.view.frame.size.width - 20, height: 178)
     }
     
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
     
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -213,29 +219,12 @@ class SavedWorkoutsCollectionViewController: UICollectionViewController, UIColle
         messageString.append(self.selected.name)
         messageString.append("?")
         
-        let controller = UIAlertController.init(title: "Start workout", message: messageString, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction.init(title: "Contine", style: .default, handler: { (action) in
+        let controller = UIAlertController.init(title: "Start Workout", message: messageString, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction.init(title: "Continue", style: .default, handler: { (action) in
             self.performSegue(withIdentifier: "slidingToWorkout", sender: self)
         }))
         controller.addAction(UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil))
         self.present(controller, animated: true, completion: nil)
     }
-    
-    
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

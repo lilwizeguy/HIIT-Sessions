@@ -12,7 +12,7 @@ protocol SubmitDelegate {
     func didSaveWorkout()
 }
 
-class AddTableViewController: UITableViewController {
+class AddTableViewController: UITableViewController, UITextFieldDelegate {
     
     fileprivate var warmupSwitch : UISwitch!
     fileprivate var nameField : UITextField!
@@ -70,10 +70,15 @@ class AddTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
+        if (self.workout != nil) {
+            self.navigationItem.title = "Edit Workout"
+        }
+        else {
+            self.navigationItem.title = "Add Workout"
+        }
+
         self.clearsSelectionOnViewWillAppear = false
         
-        self.navigationItem.title = "Add Workout"
 
         
         let basicNib : UINib = UINib(nibName: CellIdentifiers.kBasicCell.rawValue, bundle: nil);
@@ -136,7 +141,7 @@ class AddTableViewController: UITableViewController {
             var title: String = ""
             var keyboardType: UIKeyboardType = UIKeyboardType.numberPad
             
-            
+            cell.descriptionField.delegate = self
             
             switch indexPath.row {
                 case WorkoutRows.kNameRow.rawValue:
@@ -145,7 +150,7 @@ class AddTableViewController: UITableViewController {
                         cell.descriptionField.text = workout.name
                     }
                     setField(src: &cell.descriptionField, dest: &self.nameField)
-
+                    setPlaceholder(field: self.nameField, str: "My awesome workout")
                     keyboardType = .asciiCapable
                 case WorkoutRows.kLowRow.rawValue:
                     title = "Low Intensity"
@@ -153,6 +158,7 @@ class AddTableViewController: UITableViewController {
                         cell.descriptionField.text = String.init(format: "%d", workout.lowIntensity.intValue)
                     }
                     setField(src: &cell.descriptionField, dest: &self.lowField)
+                    setPlaceholder(field: self.lowField, str: "60")
 
                 case WorkoutRows.kHighRow.rawValue:
                     title = "High Intensity"
@@ -160,6 +166,8 @@ class AddTableViewController: UITableViewController {
                         cell.descriptionField.text = String.init(format: "%d", workout.highIntensity.intValue)
                     }
                     setField(src: &cell.descriptionField, dest: &self.highField)
+                    setPlaceholder(field: self.highField, str: "30")
+
 
                 case WorkoutRows.kCyclesRow.rawValue:
                     title = "Cycles"
@@ -167,6 +175,8 @@ class AddTableViewController: UITableViewController {
                         cell.descriptionField.text = String.init(format: "%d", workout.numCycles.intValue)
                     }
                     setField(src: &cell.descriptionField, dest: &self.cyclesField)
+                    setPlaceholder(field: self.cyclesField, str: "5")
+
 
                 default:
                     title = ""
@@ -179,6 +189,34 @@ class AddTableViewController: UITableViewController {
             
             return cell
         }
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        
+        if textField == self.nameField {
+            
+            let maxLength = 25
+            let currentString: NSString = (textField.text as? NSString)!
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+
+        }
+        else {
+            
+            let maxLength = 3
+            let currentString: NSString = (textField.text as? NSString)!
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+        
+    }
+    
+    func setPlaceholder(field : UITextField!, str : String) {
+        let attrStr = NSAttributedString.init(string: str, attributes: [NSForegroundColorAttributeName:UIColor.lightGray])
+        field.attributedPlaceholder = attrStr
     }
     
     func setField(src : inout UITextField!, dest : inout UITextField!) {
