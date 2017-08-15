@@ -83,7 +83,7 @@ class TimerScreenViewController: UIViewController {
     }
     
     func resetTimer() {
-        
+        self.totalCycles-=1
         if (self.totalCycles == 0) {
             self.mainTimer.invalidate()
             let emptyModel = StopwatchModel.init()
@@ -94,7 +94,6 @@ class TimerScreenViewController: UIViewController {
         }
         isHigh = !isHigh
         self.cycleTime = self.getCycleTime()
-        self.totalCycles-=1
         self.updateCycleView()
         self.startTime = Date.init()
     }
@@ -136,10 +135,10 @@ class TimerScreenViewController: UIViewController {
         }
         
         if (self.isHigh == true ) {
-            self.animationView.backgroundColor = ClientApplicationInterface.applicationBlueColor()
+            self.animationView.backgroundColor = ClientApplicationInterface.applicationRedColor()
         }
         else {
-            self.animationView.backgroundColor = ClientApplicationInterface.applicationRedColor()
+            self.animationView.backgroundColor = ClientApplicationInterface.applicationBlueColor()
 
         }
     }
@@ -205,7 +204,7 @@ class TimerScreenViewController: UIViewController {
         startTime = Date.init()
         
         // janky but works DO IN THIS ORDER
-        self.isHigh = true
+        self.isHigh = false
         self.totalCycles = self.workout?.numCycles as! Int * 2
         self.updateCycleView()
         cycleTime = self.getCycleTime()

@@ -21,7 +21,7 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "icon v2@3x-1.png",
+      "filename" : "icon v2@2x-6.png",
       "scale" : "3x"
     },
     {
@@ -39,13 +39,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon v2@2x-4.png",
+      "filename" : "icon v2@2x-5.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon v2@3x-3.png",
+      "filename" : "icon v2@3x-4.png",
       "scale" : "3x"
     },
     {
@@ -122,7 +122,6 @@
     {
       "size" : "40x40",
       "idiom" : "watch",
-      "filename" : "icon v2@2x-2.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"

@@ -51,6 +51,26 @@ class AddTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func saveWorkout(_ sender: Any) {
         self.onSubmit()
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameField {
+            cyclesField.becomeFirstResponder()
+        }
+        else if textField == cyclesField {
+            highField.becomeFirstResponder()
+        }
+        else if textField == highField {
+            lowField.becomeFirstResponder()
+        }
+        else if textField == lowField {
+            lowField.resignFirstResponder()
+        }
+        
+        return false
+    }
+    
     convenience init(aWorkout: Workout)
     {
         self.init(style: UITableViewStyle.grouped)
@@ -141,6 +161,7 @@ class AddTableViewController: UITableViewController, UITextFieldDelegate {
             var title: String = ""
             var keyboardType: UIKeyboardType = UIKeyboardType.numberPad
             
+            
             cell.descriptionField.delegate = self
             
             switch indexPath.row {
@@ -186,6 +207,7 @@ class AddTableViewController: UITableViewController, UITextFieldDelegate {
             
             cell.textLabel?.text = title
             cell.descriptionField.keyboardType = keyboardType
+            cell.descriptionField.returnKeyType = .next
             
             return cell
         }
