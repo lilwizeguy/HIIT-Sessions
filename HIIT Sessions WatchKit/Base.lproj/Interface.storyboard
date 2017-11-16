@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HIIT_Sessions_WatchKit" customModuleProvider="target">
+                    <items>
+                        <label width="136" height="60" alignment="center" text="High" textAlignment="center" id="b8C-Pv-iSD">
+                            <fontDescription key="font" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                        </label>
+                        <label width="136" height="45" alignment="center" text="5 cycles left" textAlignment="center" id="COd-AO-Wac">
+                            <fontDescription key="font" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        </label>
+                        <button width="1" alignment="center" title="Exit" id="14M-e1-AU4">
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.01176470588" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="onExit" destination="AgC-eL-Hgc" id="a9X-O2-inR"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cyclesLabel" destination="COd-AO-Wac" id="oMm-Bs-9Rm"/>
+                        <outlet property="timeLabel" destination="b8C-Pv-iSD" id="0Uz-8j-alH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="219.69230769230771" y="332.58974358974359"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="HIIT_Sessions_WatchKit" customModuleProvider="target">
+                    <items>
+                        <label width="136" height="112" alignment="left" text="Your workout is ready.  " textAlignment="center" numberOfLines="4" id="Fta-RK-d1J">
+                            <fontDescription key="font" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

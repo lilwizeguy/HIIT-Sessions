@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreAudioKit
-
+import WatchKit
+import WatchConnectivity
 
 struct StopwatchModel {
     var minutes = 0
@@ -28,7 +29,13 @@ struct StopwatchModel {
     }
 }
 
-class TimerScreenViewController: UIViewController {
+class TimerScreenViewController: UIViewController, WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    
+    var watchSession: WCSession!
     
     var musicThread: Thread?
     
@@ -38,7 +45,7 @@ class TimerScreenViewController: UIViewController {
     
     // This is the main timer
     var mainTimer: Timer = Timer.init()
-    
+        
     
     // This is the start time and end time
     var startTime: Date = Date.init()
@@ -130,15 +137,30 @@ class TimerScreenViewController: UIViewController {
     }
     
     func updateCycleView() {
+        
+        var userInfo : Dictionary<String, Any> = Dictionary<String, Any>.init()
+        
         if (self.totalCycles % 2 == 0) {
             self.cyclesLabel.text = String.init(format:"%d cycles remaining", self.totalCycles / 2)
+
         }
+        
         
         if (self.isHigh == true ) {
             self.animationView.backgroundColor = ClientApplicationInterface.applicationRedColor()
+            
+            userInfo["workoutType"] = "High"
+            userInfo["cyclesLeft"] = self.totalCycles / 2
+           // userInfo["color"] = ClientApplicationInterface.applicationRedColor()
+            self.watchSession.transferUserInfo(userInfo)
         }
         else {
             self.animationView.backgroundColor = ClientApplicationInterface.applicationBlueColor()
+            userInfo["workoutType"] = "Low"
+            userInfo["cyclesLeft"] = self.totalCycles / 2
+          //  userInfo["color"] = ClientApplicationInterface.applicationBlueColor()
+            
+            self.watchSession.transferUserInfo(userInfo)
 
         }
     }
@@ -266,6 +288,7 @@ class TimerScreenViewController: UIViewController {
 
 
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -276,6 +299,13 @@ class TimerScreenViewController: UIViewController {
         self.view.addSubview(self.animationView)
         self.view.sendSubview(toBack: self.animationView)
         
+        // Initialize watchkit session
+        if (WCSession.isSupported()) {
+            self.watchSession = WCSession.default()
+            watchSession.delegate = self
+            watchSession.activate()
+        }
+        
 
         // Do any additional setup after loading the view.
     }
@@ -283,6 +313,27 @@ class TimerScreenViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    /* WatchKit Delegation Methods */
+    
+    
+    func session(_ session: WCSession, didFinish fileTransfer: WCSessionFileTransfer, error: Error?) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func sessionWatchStateDidChange(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
     }
     
     
